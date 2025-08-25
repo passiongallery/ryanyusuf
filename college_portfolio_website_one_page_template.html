@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Riyan Ozman — Portfolio</title>
+  <meta name="description" content="A concise portfolio showcasing my passions, projects, and photography." />
+  <meta property="og:title" content="Riyan Ozman — Portfolio" />
+  <meta property="og:description" content="A concise portfolio showcasing my passions, projects, and photography." />
+  <meta property="og:type" content="website" />
+  <meta name="theme-color" content="#0f172a" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0b1020;           /* deep navy */
+      --panel:#111833;        /* card bg */
+      --text:#e6e9f2;         /* primary text */
+      --muted:#a7b0c5;        /* secondary text */
+      --accent:#7dd3fc;       /* cyan */
+      --accent-2:#c4b5fd;     /* violet */
+      --ring: 0 0 0 3px rgba(125,211,252,.35);
+      --radius:20px;
+      --shadow:0 10px 25px rgba(0,0,0,.35);
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;background:linear-gradient(180deg,var(--bg),#0d1326 40%, #0a0f21 100%);color:var(--text);font-family:Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;line-height:1.6}
+    a{color:var(--accent)}
+    .wrap{max-width:1100px;margin:0 auto;padding:24px}
+    header{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:16px 0}
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo{width:44px;height:44px;border-radius:12px;background:linear-gradient(135deg,var(--accent),var(--accent-2));box-shadow:var(--shadow)}
+    .title{font-weight:800;font-size:1.25rem}
+    nav a{margin-left:16px;text-decoration:none;color:var(--muted)}
+    nav a:hover,nav a:focus{color:var(--text)}
+
+    .hero{margin-top:32px;padding:32px;border-radius:var(--radius);background:linear-gradient(135deg,rgba(125,211,252,.12),rgba(196,181,253,.10));border:1px solid rgba(125,211,252,.18);box-shadow:var(--shadow)}
+    .hero h1{margin:0 0 8px;font-size:clamp(28px,5vw,40px);line-height:1.1}
+    .hero p{margin:0;color:var(--muted);max-width:60ch}
+    .cta{margin-top:18px;display:flex;gap:10px;flex-wrap:wrap}
+    .btn{appearance:none;border:none;border-radius:999px;padding:10px 16px;background:var(--text);color:#0a0a0a;font-weight:700;cursor:pointer}
+    .btn.alt{background:transparent;color:var(--text);border:1px solid rgba(255,255,255,.25)}
+    .btn:focus-visible{outline:none;box-shadow:var(--ring)}
+
+    section{margin-top:48px}
+    h2{font-size:1.35rem;margin:0 0 12px}
+    .card{background:var(--panel);border:1px solid rgba(255,255,255,.06);border-radius:var(--radius);box-shadow:var(--shadow)}
+
+    /* Gallery */
+    .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:14px}
+    .tile{position:relative;grid-column:span 6;overflow:hidden;border-radius:16px}
+    .tile img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(1.05);transition:transform .4s ease}
+    .tile:hover img{transform:scale(1.03)}
+    .tile small{position:absolute;left:10px;bottom:10px;background:rgba(0,0,0,.45);backdrop-filter:blur(6px);padding:6px 10px;border-radius:12px;color:#fff}
+    @media(min-width:900px){.tile{grid-column:span 4}}
+    @media(min-width:1200px){.tile{grid-column:span 3}}
+
+    /* About/Projects cards */
+    .flex{display:grid;grid-template-columns:1fr;gap:16px}
+    @media(min-width:900px){.flex{grid-template-columns:1.2fr .8fr}}
+    .card.pad{padding:22px}
+
+    /* Contact */
+    .contact{display:flex;gap:10px;flex-wrap:wrap}
+    .input{flex:1;min-width:220px;background:#0d1430;border:1px solid rgba(255,255,255,.1);color:var(--text);border-radius:12px;padding:10px}
+    .footer{margin:48px 0 8px;color:var(--muted);font-size:.9rem;text-align:center}
+
+    /* Lightbox */
+    dialog#lightbox{border:none;padding:0;background:transparent}
+    .lightbox-backdrop{position:fixed;inset:0;background:rgba(0,0,0,.65);display:grid;place-items:center}
+    .lightbox-img{max-width:92vw;max-height:82vh;border-radius:16px;box-shadow:var(--shadow);display:block}
+    .close{position:fixed;top:18px;right:18px;background:rgba(0,0,0,.6);color:#fff;border:none;border-radius:999px;padding:10px 12px;font-weight:700;cursor:pointer}
+    @media (prefers-reduced-motion: reduce){.tile img{transition:none}}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <div class="logo" aria-hidden="true"></div>
+        <div class="title">Riyan Ozman</div>
+      </div>
+      <nav aria-label="Primary">
+        <a href="#work">Passions</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <section class="hero card" aria-label="Intro">
+      <h1>Hi, I’m Riyan — I build, photograph, and learn.</h1>
+      <p>
+        A one‑page portfolio for college applications, showcasing the projects and photos that reflect what I care about most.
+      </p>
+      <div class="cta">
+        <a class="btn" href="#work">See my work</a>
+        <a class="btn alt" href="#about">About me</a>
+      </div>
+    </section>
+
+    <section id="work" aria-labelledby="work-title">
+      <h2 id="work-title">Passions Gallery</h2>
+      <p class="muted" style="color:var(--muted);margin-top:-6px">Add 8–12 of your best photos. Keep each under ~300KB for fast loading. Use descriptive alt text.</p>
+      <div class="grid">
+        <!-- Replace src values with your images; keep informative alt text -->
+        <figure class="tile card"><img loading="lazy" src="images/passion1.jpg" alt="Portrait of a graduate tossing cap at sunset" data-full="images/passion1@2x.jpg"><small>Graduation Portraits</small></figure>
+        <figure class="tile card"><img loading="lazy" src="images/passion2.jpg" alt="Hand‑embroidered floral design on denim jacket" data-full="images/passion2@2x.jpg"><small>Embroidery & Design</small></figure>
+        <figure class="tile card"><img loading="lazy" src="images/passion3.jpg" alt="Street photo of NYC crosswalk with motion blur" data-full="images/passion3@2x.jpg"><small>Street Photography</small></figure>
+        <figure class="tile card"><img loading="lazy" src="images/passion4.jpg" alt="Student-led coding workshop with laptops and whiteboard" data-full="images/passion4@2x.jpg"><small>Coding Workshops</small></figure>
+        <figure class="tile card"><img loading="lazy" src="images/passion5.jpg" alt="Bride and groom laughing during first dance" data-full="images/passion5@2x.jpg"><small>Wedding Moments</small></figure>
+        <figure class="tile card"><img loading="lazy" src="images/passion6.jpg" alt="Product mockups of a small business brand" data-full="images/passion6@2x.jpg"><small>Entrepreneurship</small></figure>
+        <figure class="tile card"><img loading="lazy" src="images/passion7.jpg" alt="A minimalist website on a laptop and phone" data-full="images/passion7@2x.jpg"><small>Web Projects</small></figure>
+        <figure class="tile card"><img loading="lazy" src="images/passion8.jpg" alt="Volunteers organizing donated supplies" data-full="images/passion8@2x.jpg"><small>Community Service</small></figure>
+      </div>
+    </section>
+
+    <section id="about" class="flex" aria-labelledby="about-title">
+      <div class="card pad">
+        <h2 id="about-title">About Me</h2>
+        <p>
+          I’m a student passionate about business, tech, and visual storytelling. I’ve led social campaigns for nonprofits, photographed graduations & weddings, and built projects that make student life easier. I learn quickly, care about people, and love turning ideas into impact.
+        </p>
+        <ul>
+          <li><strong>Interests:</strong> Entrepreneurship, photography, coding education, community leadership</li>
+          <li><strong>Highlights:</strong> Organized coding competitions awarding scholarships; captured 40+ client shoots; launched a small e‑commerce brand</li>
+          <li><strong>Skills:</strong> Canva, Lightroom, Python/JS, social strategy, event coordination</li>
+        </ul>
+      </div>
+      <aside class="card pad" aria-label="Quick facts">
+        <h2 style="margin-top:0">Quick Facts</h2>
+        <p><strong>Location:</strong> Seattle, WA</p>
+        <p><strong>Education:</strong> High school senior & Running Start student</p>
+        <p><strong>Goals:</strong> Study business & economics; build startups that help students</p>
+        <p><strong>Resume:</strong> <a href="#" aria-label="Download resume PDF">Download PDF</a></p>
+      </aside>
+    </section>
+
+    <section aria-labelledby="projects-title">
+      <h2 id="projects-title">Selected Projects</h2>
+      <div class="card pad">
+        <article>
+          <h3 style="margin:6px 0">Scholarship Coding Challenge</h3>
+          <p style="color:var(--muted);margin-top:-6px">Nonprofit program • Role: Social Media & Ops</p>
+          <p>Designed the online campaign, recruited 120+ participants, coordinated judges, and awarded scholarships to winners. Built a simple website and submission form.</p>
+        </article>
+        <hr style="border-color:rgba(255,255,255,.08)" />
+        <article>
+          <h3 style="margin:6px 0">Graduation Photo Series</h3>
+          <p style="color:var(--muted);margin-top:-6px">Photography • Role: Lead Photographer</p>
+          <p>Planned locations, directed shoots, and delivered edited galleries within 48 hours; focused on authentic, celebratory moments.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="contact" aria-labelledby="contact-title">
+      <h2 id="contact-title">Contact</h2>
+      <div class="card pad">
+        <p>Have questions or want to learn more? I’d love to connect.</p>
+        <div class="contact">
+          <input class="input" type="email" placeholder="you@email.com" aria-label="Your email" />
+          <a class="btn" href="mailto:you@email.com?subject=Hello%20from%20your%20portfolio">Email me</a>
+          <a class="btn alt" href="https://www.linkedin.com/" target="_blank" rel="noreferrer">LinkedIn</a>
+        </div>
+      </div>
+    </section>
+
+    <p class="footer">© <span id="year"></span> Your Name — Built with semantic HTML/CSS for fast loading & accessibility.</p>
+  </div>
+
+  <!-- Lightbox Dialog -->
+  <dialog id="lightbox" aria-label="Image preview">
+    <div class="lightbox-backdrop" role="document">
+      <img class="lightbox-img" alt="Expanded gallery item" />
+      <button class="close" aria-label="Close preview">✕</button>
+    </div>
+  </dialog>
+
+  <script>
+    // Current year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Simple lightbox for gallery
+    const dialog = document.getElementById('lightbox');
+    const imgEl = dialog.querySelector('.lightbox-img');
+    const closeBtn = dialog.querySelector('.close');
+    document.querySelectorAll('.tile img').forEach(img => {
+      img.addEventListener('click', () => {
+        imgEl.src = img.dataset.full || img.src;
+        dialog.showModal();
+      });
+    });
+    const close = () => dialog.close();
+    closeBtn.addEventListener('click', close);
+    dialog.addEventListener('click', (e)=>{ if(e.target === dialog) close(); });
+    window.addEventListener('keydown', (e)=>{ if(e.key === 'Escape' && dialog.open) close(); });
+  </script>
+</body>
+</html>
